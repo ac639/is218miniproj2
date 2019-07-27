@@ -35,3 +35,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/contact', 'PagesController@contact')->name('contact');
 Route::post('/contact', 'PagesController@store')->name('contact.store');
+
+Route::get('/about', 'PagesController@about')->name('about');

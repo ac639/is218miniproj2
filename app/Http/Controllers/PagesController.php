@@ -11,6 +11,10 @@ class PagesController extends Controller
 
     }
 
+    function about() {
+        return view('pages.about');
+    }
+
     function store(Request $request) {
         $name = $request->name;
         return redirect()->route('thanks',['name' => $name]);
