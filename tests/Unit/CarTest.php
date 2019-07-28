@@ -63,7 +63,7 @@ class CarTest extends TestCase
     }
 
     public function testCountCarTable() {
-
+        //Check countcar table count
 
         $count = DB::table('car')->count();
 
