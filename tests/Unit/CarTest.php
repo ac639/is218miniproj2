@@ -97,5 +97,12 @@ class CarTest extends TestCase
 
     }
 
+    public function testIsString() {
+        $car = DB::table('car')->where('model','civic')->first();
+        $carModel = $car->model;
+
+        $this->assertIsString($carModel);
+    }
+
 
 }
