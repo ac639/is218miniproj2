@@ -79,5 +79,23 @@ class CarTest extends TestCase
         $this->assertIsInt($car2);
     }
 
+    public function testCarMake() {
+
+        $car = DB::table('car')->where('make','toyota')->first();
+        $carMake = $car->make;
+
+        if ($carMake === "honda") {
+            $this->assertTrue(true);
+        } else if ($carMake === "toyota") {
+            $this->assertTrue(true);
+        } else if ($carMake === "ford") {
+            $this->assertTrue(true);
+        } else {
+            $this->assertTrue(false);
+        }
+
+
+    }
+
 
 }
