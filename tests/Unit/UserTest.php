@@ -32,11 +32,24 @@ class UserTest extends TestCase
 
         DB::table('users')->insert($data);
 
-        //DB::table('users')->where('name', 'acatarino')->delete();
-
-        //$user = User::find('acatarino');
-        //dd($user);
+        //DB::table('users')->where('name', 'andrec')->delete();
 
         $this->assertTrue(true);
     }
+
+    public function testUpdateUser() {
+
+        DB::table('users')
+            ->where('name', 'andrec')
+            ->update(['name' => 'Steve Smith']);
+
+        $user = User::where('name','Steve Smith') -> first();
+
+        //DB::table('users')->where('name', 'Steve Smith')->delete();
+
+        $this->assertEquals('Steve Smith',$user['name']);
+
+    }
+
+
 }
