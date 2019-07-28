@@ -2,11 +2,12 @@
 
 namespace Tests\Unit;
 
+use App\car;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-use App\Car;
+//use App\car;
 use DB;
 
 class CarTest extends TestCase
@@ -27,8 +28,23 @@ class CarTest extends TestCase
 
         DB::table('car')->insert($data);
 
-        DB::table('car')->where('make', 'honda')->delete();
+        //DB::table('car')->where('make', 'honda')->delete();
 
         $this->assertTrue(true);
+    }
+
+    public function testUpdateCar() {
+
+        DB::table('car')
+            ->where('make', 'honda')
+            ->update(['year' => '2000']);
+
+        $car = DB::table('car')->where('year','2000')->first();
+        //dd($car->year);
+
+        //DB::table('car')->where('year', '2000')->delete();
+
+        $this->assertEquals('2000',$car->year);
+
     }
 }
