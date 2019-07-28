@@ -20,6 +20,8 @@ class UserTest extends TestCase
      *
      * @return void
      */
+
+
     public function testInsertUser()
     {
 
@@ -66,6 +68,13 @@ class UserTest extends TestCase
 
     }
 
-//$count = \DB::table('table_name')->count();
+
+    public function testCountTable() {
+        $count = DB::table('users')->count();
+
+        $this->assertEquals(50,$count);
+
+    }
+
 
 }
