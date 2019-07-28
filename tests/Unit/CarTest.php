@@ -47,4 +47,17 @@ class CarTest extends TestCase
         $this->assertEquals('2000',$car->year);
 
     }
+
+    public function testDeleteCar() {
+
+        DB::table('car')->where('make', 'honda')->delete();
+
+        $expected = null;
+
+        $car = DB::table('car')
+            ->where('make', 'honda');
+
+        $this->assertEquals($expected, null);
+
+    }
 }
