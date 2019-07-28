@@ -51,5 +51,21 @@ class UserTest extends TestCase
 
     }
 
+    public function testDeleteUser() {
+
+        DB::table('users')->where('name', 'Steve Smith')->delete();
+
+        $expected = null;
+
+        $user = DB::table('users')
+            ->where('name', 'Steve Smith');
+
+
+
+        $this->assertEquals($expected, null);
+
+    }
+
+//$count = \DB::table('table_name')->count();
 
 }
