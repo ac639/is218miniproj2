@@ -17,11 +17,12 @@ class CarTest extends TestCase
      *
      * @return void
      */
+
     public function testInsertCar()
     {
         $data = array(
             'make' => 'honda',
-            'model' => 'civic',
+            'model' => 'pilot',
             'year' => '2006',
 
         );
@@ -50,14 +51,33 @@ class CarTest extends TestCase
 
     public function testDeleteCar() {
 
-        DB::table('car')->where('make', 'honda')->delete();
+        DB::table('car')->where('model', 'pilot')->delete();
 
         $expected = null;
 
         $car = DB::table('car')
-            ->where('make', 'honda');
+            ->where('model', 'pilot');
 
         $this->assertEquals($expected, null);
 
     }
+
+    public function testCountCarTable() {
+
+
+        $count = DB::table('car')->count();
+
+        $this->assertEquals(50,$count);
+
+    }
+
+    public function testIsInteger() {
+        $car = DB::table('car')->where('year','2012')->first();
+        $car2 = (int)$car->year;
+        //dd($car2);
+
+        $this->assertIsInt($car2);
+    }
+
+
 }
